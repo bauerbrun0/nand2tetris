@@ -73,16 +73,51 @@
     <wire from="(230,170)" to="(300,170)"/>
     <wire from="(300,150)" to="(340,150)"/>
     <wire from="(300,190)" to="(340,190)"/>
-    <comp lib="0" loc="(230,170)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="Input"/>
-    </comp>
+    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
     <comp lib="0" loc="(460,170)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Output"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
+    <comp lib="0" loc="(230,170)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Input"/>
+    </comp>
+  </circuit>
+  <circuit name="And">
+    <a name="circuit" val="And"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="60" stroke="#000000" stroke-width="2" width="72" x="137" y="248"/>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="172" y="284">And</text>
+      <circ-port height="8" pin="150,280" width="8" x="136" y="266"/>
+      <circ-port height="8" pin="150,320" width="8" x="136" y="286"/>
+      <circ-port height="10" pin="510,300" width="10" x="205" y="275"/>
+      <circ-anchor facing="east" height="6" width="6" x="207" y="277"/>
+    </appear>
+    <wire from="(150,280)" to="(240,280)"/>
+    <wire from="(150,320)" to="(240,320)"/>
+    <wire from="(240,280)" to="(240,290)"/>
+    <wire from="(300,300)" to="(350,300)"/>
+    <wire from="(440,300)" to="(510,300)"/>
+    <comp loc="(440,300)" name="Not"/>
+    <comp lib="1" loc="(300,300)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(150,320)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(150,280)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(510,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
 </project>

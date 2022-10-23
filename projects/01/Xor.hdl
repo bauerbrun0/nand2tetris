@@ -8,10 +8,18 @@
  * out = not (a == b)
  */
 
+ /*
+    a Xor b = (Not(a) And b) Or (a And Not(b)) = (Not(a) Nand b) Nand (a Nand Not(b)) -- De Morgan
+ */
+
 CHIP Xor {
     IN a, b;
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Not(in = a, out = notA);
+    Not(in = b, out = notB);
+    Nand(a = notA, b = b, out = notANandb);
+    Nand(a = a, b = notB, out = aNandnotB);
+    Nand(a = notANandb, b = aNandnotB, out = out);
 }

@@ -73,7 +73,6 @@
     <wire from="(230,170)" to="(300,170)"/>
     <wire from="(300,150)" to="(340,150)"/>
     <wire from="(300,190)" to="(340,190)"/>
-    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
     <comp lib="0" loc="(460,170)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -84,6 +83,7 @@
       <a name="tristate" val="false"/>
       <a name="label" val="Input"/>
     </comp>
+    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
   </circuit>
   <circuit name="And">
     <a name="circuit" val="And"/>
@@ -104,16 +104,58 @@
     <wire from="(300,300)" to="(350,300)"/>
     <wire from="(440,300)" to="(510,300)"/>
     <comp loc="(440,300)" name="Not"/>
+    <comp lib="0" loc="(150,320)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
     <comp lib="1" loc="(300,300)" name="NAND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="0" loc="(150,320)" name="Pin">
+    <comp lib="0" loc="(510,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
       <a name="tristate" val="false"/>
+      <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(150,280)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(510,300)" name="Pin">
+  </circuit>
+  <circuit name="Or">
+    <a name="circuit" val="Or"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="78" stroke="#000000" stroke-width="2" width="87" x="168" y="151"/>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="207" y="195">Or</text>
+      <circ-port height="8" pin="120,300" width="8" x="166" y="166"/>
+      <circ-port height="8" pin="120,400" width="8" x="166" y="206"/>
+      <circ-port height="10" pin="480,350" width="10" x="245" y="185"/>
+      <circ-anchor facing="east" height="6" width="6" x="247" y="187"/>
+    </appear>
+    <wire from="(120,300)" to="(200,300)"/>
+    <wire from="(120,400)" to="(200,400)"/>
+    <wire from="(430,350)" to="(480,350)"/>
+    <wire from="(330,300)" to="(330,330)"/>
+    <wire from="(330,370)" to="(330,400)"/>
+    <wire from="(290,300)" to="(330,300)"/>
+    <wire from="(290,400)" to="(330,400)"/>
+    <wire from="(330,330)" to="(370,330)"/>
+    <wire from="(330,370)" to="(370,370)"/>
+    <comp loc="(290,300)" name="Not"/>
+    <comp loc="(290,400)" name="Not"/>
+    <comp lib="0" loc="(120,300)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="1" loc="(430,350)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(120,400)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
+    <comp lib="0" loc="(480,350)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="tristate" val="false"/>

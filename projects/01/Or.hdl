@@ -9,10 +9,20 @@
  *       0 otherwise
  */
 
+/*
+    De Morgan:
+    Not(x Or y) = Not(x) And Not(y)
+
+    x Or y = Not(Not(x) And Not(y)) = Not(x) Nand Not(y)
+    = (x Nand x) Nand (y Nand y)
+*/
+
 CHIP Or {
     IN a, b;
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Not(in = a, out = notA);
+    Not(in = b, out = notB);
+    Nand(a = notA, b = notB, out = out);
 }

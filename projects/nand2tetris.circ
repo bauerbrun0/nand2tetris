@@ -5,7 +5,8 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="south"/>
-      <a name="appear" val="center"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -49,9 +50,9 @@
     </tool>
     <sep/>
     <tool lib="0" name="Pin">
-      <a name="width" val="2"/>
+      <a name="width" val="3"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="a16"/>
+      <a name="label" val="sel3"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
@@ -1253,6 +1254,142 @@
     <comp loc="(690,350)" name="Mux16"/>
     <comp loc="(690,480)" name="Mux16"/>
     <comp lib="0" loc="(270,520)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="d16"/>
+    </comp>
+  </circuit>
+  <circuit name="Mux8Way16">
+    <a name="circuit" val="Mux8Way16"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="136" stroke="#000000" stroke-width="2" width="161" x="50" y="20"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="72">a16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="69" y="85">b16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="97">c16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="69" y="107">d16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="67" y="116">e16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="66" y="126">f16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="66" y="134">g16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="149">h16</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="76" y="35">sel3</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="191" y="76">out16</text>
+      <text font-family="SansSerif" font-size="16" font-weight="bold" text-anchor="middle" x="143" y="100">Mux8Way16</text>
+      <circ-port height="8" pin="190,190" width="8" x="46" y="26"/>
+      <circ-port height="8" pin="240,410" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="240,460" width="8" x="46" y="76"/>
+      <circ-port height="8" pin="240,510" width="8" x="46" y="86"/>
+      <circ-port height="8" pin="240,560" width="8" x="46" y="96"/>
+      <circ-port height="8" pin="240,610" width="8" x="46" y="106"/>
+      <circ-port height="8" pin="240,660" width="8" x="46" y="116"/>
+      <circ-port height="8" pin="240,710" width="8" x="46" y="126"/>
+      <circ-port height="8" pin="240,760" width="8" x="46" y="136"/>
+      <circ-port height="10" pin="970,560" width="10" x="205" y="85"/>
+      <circ-anchor facing="east" height="6" width="6" x="207" y="87"/>
+    </appear>
+    <wire from="(240,560)" to="(430,560)"/>
+    <wire from="(270,410)" to="(270,480)"/>
+    <wire from="(260,680)" to="(450,680)"/>
+    <wire from="(240,760)" to="(420,760)"/>
+    <wire from="(270,480)" to="(450,480)"/>
+    <wire from="(270,660)" to="(450,660)"/>
+    <wire from="(270,370)" to="(770,370)"/>
+    <wire from="(240,510)" to="(240,520)"/>
+    <wire from="(410,700)" to="(410,710)"/>
+    <wire from="(260,190)" to="(260,200)"/>
+    <wire from="(770,530)" to="(830,530)"/>
+    <wire from="(260,660)" to="(260,680)"/>
+    <wire from="(430,540)" to="(430,560)"/>
+    <wire from="(240,710)" to="(410,710)"/>
+    <wire from="(270,220)" to="(270,370)"/>
+    <wire from="(570,680)" to="(800,680)"/>
+    <wire from="(570,500)" to="(670,500)"/>
+    <wire from="(290,240)" to="(290,450)"/>
+    <wire from="(800,590)" to="(800,680)"/>
+    <wire from="(930,560)" to="(970,560)"/>
+    <wire from="(410,700)" to="(450,700)"/>
+    <wire from="(240,410)" to="(270,410)"/>
+    <wire from="(240,610)" to="(270,610)"/>
+    <wire from="(290,450)" to="(450,450)"/>
+    <wire from="(290,630)" to="(450,630)"/>
+    <wire from="(420,720)" to="(450,720)"/>
+    <wire from="(430,540)" to="(450,540)"/>
+    <wire from="(670,560)" to="(830,560)"/>
+    <wire from="(770,370)" to="(770,530)"/>
+    <wire from="(250,460)" to="(250,500)"/>
+    <wire from="(240,520)" to="(450,520)"/>
+    <wire from="(420,720)" to="(420,760)"/>
+    <wire from="(800,590)" to="(830,590)"/>
+    <wire from="(240,660)" to="(260,660)"/>
+    <wire from="(290,450)" to="(290,630)"/>
+    <wire from="(240,460)" to="(250,460)"/>
+    <wire from="(270,610)" to="(270,660)"/>
+    <wire from="(670,500)" to="(670,560)"/>
+    <wire from="(190,190)" to="(260,190)"/>
+    <wire from="(250,500)" to="(450,500)"/>
+    <comp lib="0" loc="(190,190)" name="Pin">
+      <a name="width" val="3"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="sel3"/>
+    </comp>
+    <comp lib="0" loc="(240,410)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a16"/>
+    </comp>
+    <comp lib="0" loc="(240,710)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="g16"/>
+    </comp>
+    <comp lib="0" loc="(970,560)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="out16"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(240,510)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="c16"/>
+    </comp>
+    <comp lib="0" loc="(240,460)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b16"/>
+    </comp>
+    <comp lib="0" loc="(240,660)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="f16"/>
+    </comp>
+    <comp loc="(570,680)" name="Mux4Way16"/>
+    <comp lib="0" loc="(240,610)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="e16"/>
+    </comp>
+    <comp loc="(570,500)" name="Mux4Way16"/>
+    <comp lib="0" loc="(240,760)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="h16"/>
+    </comp>
+    <comp loc="(930,560)" name="Mux16"/>
+    <comp lib="0" loc="(290,240)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp lib="0" loc="(260,200)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
+    </comp>
+    <comp lib="0" loc="(240,560)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="d16"/>

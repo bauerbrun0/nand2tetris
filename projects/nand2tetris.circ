@@ -6,7 +6,13 @@
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
   <lib desc="#Arithmetic" name="3"/>
-  <lib desc="#Memory" name="4"/>
+  <lib desc="#Memory" name="4">
+    <tool name="ROM">
+      <a name="contents">addr/data: 8 8
+0
+</a>
+    </tool>
+  </lib>
   <lib desc="#I/O" name="5"/>
   <lib desc="#Base" name="6">
     <tool name="Text Tool">
@@ -282,5 +288,66 @@
       <a name="tristate" val="false"/>
       <a name="label" val="sel"/>
     </comp>
+  </circuit>
+  <circuit name="Dmux">
+    <a name="circuit" val="Dmux"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="88" stroke="#000000" stroke-width="2" width="122" x="50" y="50"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="153" y="73">a</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="154" y="119">b</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="68" y="75">sel</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="64" y="114">in</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="111" y="97">Dmux</text>
+      <circ-port height="8" pin="80,210" width="8" x="46" y="66"/>
+      <circ-port height="8" pin="80,310" width="8" x="46" y="106"/>
+      <circ-port height="10" pin="560,220" width="10" x="165" y="65"/>
+      <circ-port height="10" pin="560,300" width="10" x="165" y="115"/>
+      <circ-anchor facing="east" height="6" width="6" x="167" y="67"/>
+    </appear>
+    <wire from="(280,210)" to="(340,210)"/>
+    <wire from="(140,210)" to="(140,290)"/>
+    <wire from="(300,230)" to="(300,310)"/>
+    <wire from="(80,210)" to="(140,210)"/>
+    <wire from="(80,310)" to="(300,310)"/>
+    <wire from="(140,290)" to="(340,290)"/>
+    <wire from="(140,210)" to="(190,210)"/>
+    <wire from="(300,230)" to="(340,230)"/>
+    <wire from="(300,310)" to="(340,310)"/>
+    <wire from="(410,220)" to="(560,220)"/>
+    <wire from="(410,300)" to="(560,300)"/>
+    <comp lib="0" loc="(560,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(344,105)" name="Text">
+      <a name="text" val="if(!sel) a = 0 b = in"/>
+    </comp>
+    <comp loc="(280,210)" name="Not"/>
+    <comp lib="0" loc="(80,210)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="sel"/>
+    </comp>
+    <comp lib="0" loc="(80,310)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="in"/>
+    </comp>
+    <comp lib="0" loc="(560,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(193,104)" name="Text">
+      <a name="text" val="if(sel) a = in b = 0"/>
+    </comp>
+    <comp loc="(410,220)" name="And"/>
+    <comp loc="(410,300)" name="And"/>
   </circuit>
 </project>

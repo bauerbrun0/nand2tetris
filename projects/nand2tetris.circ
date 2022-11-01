@@ -5,8 +5,6 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="facing" val="south"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -50,16 +48,15 @@
     </tool>
     <sep/>
     <tool lib="0" name="Pin">
-      <a name="width" val="3"/>
+      <a name="width" val="2"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="sel3"/>
+      <a name="label" val="sel2"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
-      <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="out16"/>
+      <a name="label" val="a"/>
       <a name="labelloc" val="east"/>
     </tool>
     <tool lib="1" name="NOT Gate"/>
@@ -90,16 +87,16 @@
     <wire from="(230,170)" to="(300,170)"/>
     <wire from="(300,150)" to="(340,150)"/>
     <wire from="(300,190)" to="(340,190)"/>
+    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
+    <comp lib="0" loc="(230,170)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="Input"/>
+    </comp>
     <comp lib="0" loc="(460,170)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="label" val="Output"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="1" loc="(400,170)" name="NAND Gate"/>
-    <comp lib="0" loc="(230,170)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="Input"/>
     </comp>
   </circuit>
   <circuit name="And">
@@ -123,8 +120,9 @@
     <comp lib="0" loc="(150,280)" name="Pin">
       <a name="tristate" val="false"/>
     </comp>
-    <comp lib="0" loc="(150,320)" name="Pin">
-      <a name="tristate" val="false"/>
+    <comp loc="(440,300)" name="Not"/>
+    <comp lib="1" loc="(300,300)" name="NAND Gate">
+      <a name="inputs" val="2"/>
     </comp>
     <comp lib="0" loc="(510,300)" name="Pin">
       <a name="facing" val="west"/>
@@ -132,9 +130,8 @@
       <a name="tristate" val="false"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(440,300)" name="Not"/>
-    <comp lib="1" loc="(300,300)" name="NAND Gate">
-      <a name="inputs" val="2"/>
+    <comp lib="0" loc="(150,320)" name="Pin">
+      <a name="tristate" val="false"/>
     </comp>
   </circuit>
   <circuit name="Or">
@@ -160,6 +157,13 @@
     <wire from="(330,330)" to="(370,330)"/>
     <wire from="(330,370)" to="(370,370)"/>
     <comp loc="(290,300)" name="Not"/>
+    <comp lib="1" loc="(430,350)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(120,400)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
     <comp lib="0" loc="(480,350)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -167,16 +171,9 @@
       <a name="labelloc" val="east"/>
     </comp>
     <comp loc="(290,400)" name="Not"/>
-    <comp lib="1" loc="(430,350)" name="NAND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
     <comp lib="0" loc="(120,300)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="a"/>
-    </comp>
-    <comp lib="0" loc="(120,400)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="b"/>
     </comp>
   </circuit>
   <circuit name="Xor">
@@ -215,6 +212,18 @@
     <wire from="(210,270)" to="(210,300)"/>
     <wire from="(90,300)" to="(90,330)"/>
     <wire from="(470,280)" to="(510,280)"/>
+    <comp loc="(210,380)" name="Not"/>
+    <comp lib="1" loc="(350,250)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(40,240)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+    </comp>
+    <comp lib="1" loc="(470,280)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp loc="(210,190)" name="Not"/>
     <comp lib="0" loc="(40,330)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="b"/>
@@ -228,18 +237,6 @@
     <comp lib="1" loc="(350,320)" name="NAND Gate">
       <a name="inputs" val="2"/>
     </comp>
-    <comp lib="1" loc="(470,280)" name="NAND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp loc="(210,190)" name="Not"/>
-    <comp lib="1" loc="(350,250)" name="NAND Gate">
-      <a name="inputs" val="2"/>
-    </comp>
-    <comp lib="0" loc="(40,240)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="a"/>
-    </comp>
-    <comp loc="(210,380)" name="Not"/>
   </circuit>
   <circuit name="Mux">
     <a name="circuit" val="Mux"/>
@@ -276,6 +273,10 @@
     <wire from="(600,430)" to="(710,430)"/>
     <wire from="(600,340)" to="(710,340)"/>
     <wire from="(710,340)" to="(710,360)"/>
+    <comp lib="0" loc="(170,480)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+    </comp>
     <comp lib="0" loc="(850,380)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -283,18 +284,14 @@
       <a name="label" val="out"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(600,430)" name="And"/>
-    <comp loc="(400,330)" name="Not"/>
-    <comp loc="(790,380)" name="Or"/>
     <comp lib="0" loc="(170,330)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="sel"/>
     </comp>
     <comp loc="(600,340)" name="And"/>
-    <comp lib="0" loc="(170,480)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="b"/>
-    </comp>
+    <comp loc="(790,380)" name="Or"/>
+    <comp loc="(600,430)" name="And"/>
+    <comp loc="(400,330)" name="Not"/>
     <comp lib="0" loc="(170,420)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="a"/>
@@ -329,26 +326,6 @@
     <wire from="(300,310)" to="(340,310)"/>
     <wire from="(410,220)" to="(560,220)"/>
     <wire from="(410,300)" to="(560,300)"/>
-    <comp lib="6" loc="(193,104)" name="Text">
-      <a name="text" val="if(sel) a = in b = 0"/>
-    </comp>
-    <comp lib="0" loc="(560,300)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="b"/>
-      <a name="labelloc" val="east"/>
-    </comp>
-    <comp loc="(280,210)" name="Not"/>
-    <comp loc="(410,300)" name="And"/>
-    <comp lib="6" loc="(344,105)" name="Text">
-      <a name="text" val="if(!sel) a = 0 b = in"/>
-    </comp>
-    <comp lib="0" loc="(80,310)" name="Pin">
-      <a name="tristate" val="false"/>
-      <a name="label" val="in"/>
-    </comp>
-    <comp loc="(410,220)" name="And"/>
     <comp lib="0" loc="(560,220)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -356,10 +333,30 @@
       <a name="label" val="a"/>
       <a name="labelloc" val="east"/>
     </comp>
+    <comp loc="(410,300)" name="And"/>
+    <comp loc="(410,220)" name="And"/>
+    <comp lib="0" loc="(560,300)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="6" loc="(193,104)" name="Text">
+      <a name="text" val="if(sel) a = in b = 0"/>
+    </comp>
     <comp lib="0" loc="(80,210)" name="Pin">
       <a name="tristate" val="false"/>
       <a name="label" val="sel"/>
     </comp>
+    <comp lib="0" loc="(80,310)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="in"/>
+    </comp>
+    <comp lib="6" loc="(344,105)" name="Text">
+      <a name="text" val="if(!sel) a = 0 b = in"/>
+    </comp>
+    <comp loc="(280,210)" name="Not"/>
   </circuit>
   <circuit name="Not16">
     <a name="circuit" val="Not16"/>
@@ -467,20 +464,6 @@
     <wire from="(880,650)" to="(890,650)"/>
     <wire from="(190,760)" to="(190,1200)"/>
     <wire from="(580,1110)" to="(850,1110)"/>
-    <comp loc="(580,390)" name="Not"/>
-    <comp loc="(580,660)" name="Not"/>
-    <comp loc="(580,210)" name="Not"/>
-    <comp loc="(580,930)" name="Not"/>
-    <comp loc="(580,1380)" name="Not"/>
-    <comp lib="0" loc="(910,720)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp loc="(580,1470)" name="Not"/>
-    <comp loc="(580,1200)" name="Not"/>
-    <comp loc="(580,570)" name="Not"/>
     <comp loc="(580,1110)" name="Not"/>
     <comp lib="0" loc="(960,720)" name="Pin">
       <a name="facing" val="west"/>
@@ -490,23 +473,37 @@
       <a name="label" val="out16"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(580,750)" name="Not"/>
-    <comp loc="(580,120)" name="Not"/>
-    <comp loc="(580,1290)" name="Not"/>
-    <comp loc="(580,840)" name="Not"/>
-    <comp loc="(580,480)" name="Not"/>
-    <comp loc="(580,1020)" name="Not"/>
-    <comp lib="0" loc="(140,720)" name="Splitter">
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-    </comp>
     <comp lib="0" loc="(110,720)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="in16"/>
     </comp>
+    <comp loc="(580,930)" name="Not"/>
+    <comp loc="(580,570)" name="Not"/>
     <comp loc="(580,300)" name="Not"/>
+    <comp loc="(580,210)" name="Not"/>
+    <comp lib="0" loc="(140,720)" name="Splitter">
+      <a name="fanout" val="16"/>
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(580,480)" name="Not"/>
+    <comp loc="(580,1380)" name="Not"/>
+    <comp loc="(580,750)" name="Not"/>
+    <comp loc="(580,660)" name="Not"/>
+    <comp loc="(580,1470)" name="Not"/>
+    <comp loc="(580,1290)" name="Not"/>
+    <comp loc="(580,840)" name="Not"/>
+    <comp lib="0" loc="(910,720)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="16"/>
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(580,120)" name="Not"/>
+    <comp loc="(580,1200)" name="Not"/>
+    <comp loc="(580,390)" name="Not"/>
+    <comp loc="(580,1020)" name="Not"/>
   </circuit>
   <circuit name="And16">
     <a name="circuit" val="And16"/>
@@ -638,32 +635,25 @@
     <wire from="(830,310)" to="(1350,310)"/>
     <wire from="(1340,570)" to="(1340,870)"/>
     <wire from="(670,60)" to="(670,370)"/>
-    <comp loc="(830,1150)" name="And"/>
-    <comp loc="(830,800)" name="And"/>
-    <comp loc="(830,660)" name="And"/>
+    <comp loc="(830,1010)" name="And"/>
+    <comp loc="(830,380)" name="And"/>
     <comp loc="(830,170)" name="And"/>
-    <comp loc="(830,450)" name="And"/>
-    <comp loc="(830,940)" name="And"/>
-    <comp lib="0" loc="(1400,540)" name="Splitter">
-      <a name="facing" val="west"/>
+    <comp lib="0" loc="(640,40)" name="Splitter">
+      <a name="facing" val="south"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
       <a name="appear" val="center"/>
     </comp>
-    <comp lib="0" loc="(250,1250)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="b16"/>
-    </comp>
-    <comp loc="(830,520)" name="And"/>
+    <comp loc="(830,100)" name="And"/>
+    <comp loc="(830,940)" name="And"/>
+    <comp loc="(830,1150)" name="And"/>
+    <comp loc="(830,240)" name="And"/>
     <comp lib="0" loc="(430,30)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="a16"/>
     </comp>
-    <comp loc="(830,730)" name="And"/>
-    <comp loc="(830,240)" name="And"/>
-    <comp loc="(830,100)" name="And"/>
+    <comp loc="(830,800)" name="And"/>
     <comp lib="0" loc="(1490,540)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -672,9 +662,10 @@
       <a name="label" val="out16"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(830,1010)" name="And"/>
-    <comp loc="(830,590)" name="And"/>
     <comp loc="(830,310)" name="And"/>
+    <comp loc="(830,660)" name="And"/>
+    <comp loc="(830,520)" name="And"/>
+    <comp loc="(830,730)" name="And"/>
     <comp loc="(830,1080)" name="And"/>
     <comp lib="0" loc="(390,1210)" name="Splitter">
       <a name="facing" val="north"/>
@@ -682,14 +673,20 @@
       <a name="incoming" val="16"/>
       <a name="appear" val="center"/>
     </comp>
-    <comp loc="(830,380)" name="And"/>
-    <comp loc="(830,870)" name="And"/>
-    <comp lib="0" loc="(640,40)" name="Splitter">
-      <a name="facing" val="south"/>
+    <comp lib="0" loc="(1400,540)" name="Splitter">
+      <a name="facing" val="west"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
       <a name="appear" val="center"/>
     </comp>
+    <comp loc="(830,870)" name="And"/>
+    <comp loc="(830,450)" name="And"/>
+    <comp lib="0" loc="(250,1250)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b16"/>
+    </comp>
+    <comp loc="(830,590)" name="And"/>
   </circuit>
   <circuit name="Or16">
     <a name="circuit" val="Or16"/>
@@ -823,21 +820,15 @@
     <wire from="(1330,480)" to="(1330,770)"/>
     <wire from="(870,480)" to="(1330,480)"/>
     <wire from="(710,640)" to="(790,640)"/>
-    <comp lib="0" loc="(700,60)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
+    <comp loc="(870,1290)" name="Or"/>
+    <comp loc="(870,1110)" name="Or"/>
+    <comp loc="(870,210)" name="Or"/>
+    <comp loc="(870,1380)" name="Or"/>
+    <comp lib="0" loc="(300,1580)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
     </comp>
-    <comp loc="(870,390)" name="Or"/>
-    <comp loc="(870,840)" name="Or"/>
-    <comp lib="0" loc="(440,1550)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp loc="(870,570)" name="Or"/>
+    <comp loc="(870,1200)" name="Or"/>
     <comp lib="0" loc="(1420,810)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -845,33 +836,39 @@
       <a name="tristate" val="false"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(870,210)" name="Or"/>
+    <comp lib="0" loc="(510,30)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(700,60)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="16"/>
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(870,840)" name="Or"/>
+    <comp loc="(870,300)" name="Or"/>
+    <comp loc="(870,930)" name="Or"/>
+    <comp loc="(870,120)" name="Or"/>
+    <comp loc="(870,750)" name="Or"/>
+    <comp loc="(870,390)" name="Or"/>
     <comp loc="(870,1020)" name="Or"/>
+    <comp loc="(870,1470)" name="Or"/>
+    <comp lib="0" loc="(440,1550)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="fanout" val="16"/>
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(870,570)" name="Or"/>
     <comp loc="(870,480)" name="Or"/>
     <comp loc="(870,660)" name="Or"/>
-    <comp loc="(870,1110)" name="Or"/>
-    <comp loc="(870,1200)" name="Or"/>
-    <comp loc="(870,1470)" name="Or"/>
     <comp lib="0" loc="(1390,810)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
       <a name="appear" val="center"/>
     </comp>
-    <comp lib="0" loc="(300,1580)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(870,300)" name="Or"/>
-    <comp loc="(870,930)" name="Or"/>
-    <comp loc="(870,120)" name="Or"/>
-    <comp loc="(870,1380)" name="Or"/>
-    <comp lib="0" loc="(510,30)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-    </comp>
-    <comp loc="(870,750)" name="Or"/>
-    <comp loc="(870,1290)" name="Or"/>
   </circuit>
   <circuit name="Mux16">
     <a name="circuit" val="Mux16"/>
@@ -1038,24 +1035,43 @@
     <wire from="(960,170)" to="(1420,170)"/>
     <wire from="(960,1970)" to="(1420,1970)"/>
     <wire from="(700,100)" to="(700,1370)"/>
-    <comp loc="(960,1010)" name="Mux"/>
-    <comp loc="(960,1730)" name="Mux"/>
+    <comp loc="(960,650)" name="Mux"/>
     <comp lib="0" loc="(620,2050)" name="Splitter">
       <a name="facing" val="north"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
     </comp>
-    <comp loc="(960,890)" name="Mux"/>
+    <comp loc="(960,1970)" name="Mux"/>
+    <comp lib="0" loc="(1440,1090)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="16"/>
+      <a name="incoming" val="16"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(960,1250)" name="Mux"/>
+    <comp loc="(960,170)" name="Mux"/>
+    <comp loc="(960,1730)" name="Mux"/>
+    <comp loc="(960,530)" name="Mux"/>
+    <comp lib="0" loc="(840,60)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a16"/>
+    </comp>
+    <comp loc="(960,410)" name="Mux"/>
     <comp lib="0" loc="(810,80)" name="Splitter">
       <a name="facing" val="south"/>
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
       <a name="appear" val="right"/>
     </comp>
-    <comp lib="0" loc="(140,80)" name="Pin">
-      <a name="facing" val="south"/>
+    <comp loc="(960,1490)" name="Mux"/>
+    <comp loc="(960,1370)" name="Mux"/>
+    <comp lib="0" loc="(840,2050)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="sel"/>
+      <a name="label" val="b16"/>
     </comp>
     <comp lib="0" loc="(1520,1090)" name="Pin">
       <a name="facing" val="west"/>
@@ -1065,36 +1081,17 @@
       <a name="label" val="out16"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(960,410)" name="Mux"/>
-    <comp loc="(960,530)" name="Mux"/>
-    <comp loc="(960,770)" name="Mux"/>
-    <comp lib="0" loc="(1440,1090)" name="Splitter">
-      <a name="facing" val="west"/>
-      <a name="fanout" val="16"/>
-      <a name="incoming" val="16"/>
-      <a name="appear" val="center"/>
-    </comp>
     <comp loc="(960,1850)" name="Mux"/>
-    <comp loc="(960,1490)" name="Mux"/>
-    <comp lib="0" loc="(840,2050)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="16"/>
+    <comp loc="(960,1130)" name="Mux"/>
+    <comp lib="0" loc="(140,80)" name="Pin">
+      <a name="facing" val="south"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="b16"/>
+      <a name="label" val="sel"/>
     </comp>
     <comp loc="(960,1610)" name="Mux"/>
-    <comp loc="(960,650)" name="Mux"/>
-    <comp loc="(960,1130)" name="Mux"/>
-    <comp loc="(960,1370)" name="Mux"/>
-    <comp loc="(960,1970)" name="Mux"/>
-    <comp loc="(960,1250)" name="Mux"/>
-    <comp lib="0" loc="(840,60)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="a16"/>
-    </comp>
-    <comp loc="(960,170)" name="Mux"/>
+    <comp loc="(960,770)" name="Mux"/>
+    <comp loc="(960,1010)" name="Mux"/>
+    <comp loc="(960,890)" name="Mux"/>
     <comp loc="(960,290)" name="Mux"/>
   </circuit>
   <circuit name="Or8Way">
@@ -1143,7 +1140,23 @@
     <wire from="(230,240)" to="(1070,240)"/>
     <wire from="(460,120)" to="(530,120)"/>
     <wire from="(220,220)" to="(220,410)"/>
+    <comp lib="0" loc="(120,400)" name="Pin">
+      <a name="width" val="8"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="in8"/>
+    </comp>
+    <comp loc="(460,120)" name="Or"/>
+    <comp loc="(750,160)" name="Or"/>
+    <comp loc="(610,140)" name="Or"/>
+    <comp loc="(1280,240)" name="Or"/>
+    <comp lib="0" loc="(150,400)" name="Splitter">
+      <a name="fanout" val="8"/>
+      <a name="incoming" val="8"/>
+      <a name="appear" val="center"/>
+    </comp>
     <comp loc="(1150,220)" name="Or"/>
+    <comp loc="(880,180)" name="Or"/>
+    <comp loc="(1020,200)" name="Or"/>
     <comp lib="0" loc="(1350,240)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
@@ -1151,22 +1164,6 @@
       <a name="label" val="out"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp loc="(880,180)" name="Or"/>
-    <comp loc="(1280,240)" name="Or"/>
-    <comp lib="0" loc="(120,400)" name="Pin">
-      <a name="width" val="8"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="in8"/>
-    </comp>
-    <comp lib="0" loc="(150,400)" name="Splitter">
-      <a name="fanout" val="8"/>
-      <a name="incoming" val="8"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp loc="(460,120)" name="Or"/>
-    <comp loc="(610,140)" name="Or"/>
-    <comp loc="(1020,200)" name="Or"/>
-    <comp loc="(750,160)" name="Or"/>
   </circuit>
   <circuit name="Mux4Way16">
     <a name="circuit" val="Mux4Way16"/>
@@ -1219,12 +1216,19 @@
     <wire from="(270,520)" to="(280,520)"/>
     <wire from="(270,190)" to="(790,190)"/>
     <wire from="(910,420)" to="(990,420)"/>
+    <comp lib="0" loc="(270,390)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b16"/>
+    </comp>
+    <comp lib="0" loc="(250,190)" name="Splitter">
+      <a name="appear" val="center"/>
+    </comp>
     <comp lib="0" loc="(270,330)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="a16"/>
     </comp>
-    <comp loc="(910,420)" name="Mux16"/>
     <comp lib="0" loc="(190,190)" name="Pin">
       <a name="width" val="2"/>
       <a name="tristate" val="false"/>
@@ -1238,25 +1242,18 @@
       <a name="label" val="out16"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(270,390)" name="Pin">
+    <comp loc="(690,480)" name="Mux16"/>
+    <comp loc="(690,350)" name="Mux16"/>
+    <comp loc="(910,420)" name="Mux16"/>
+    <comp lib="0" loc="(270,520)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="b16"/>
+      <a name="label" val="d16"/>
     </comp>
     <comp lib="0" loc="(270,460)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="c16"/>
-    </comp>
-    <comp lib="0" loc="(250,190)" name="Splitter">
-      <a name="appear" val="center"/>
-    </comp>
-    <comp loc="(690,350)" name="Mux16"/>
-    <comp loc="(690,480)" name="Mux16"/>
-    <comp lib="0" loc="(270,520)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="d16"/>
     </comp>
   </circuit>
   <circuit name="Mux8Way16">
@@ -1334,15 +1331,26 @@
       <a name="tristate" val="false"/>
       <a name="label" val="sel3"/>
     </comp>
-    <comp lib="0" loc="(240,410)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="a16"/>
+    <comp loc="(570,680)" name="Mux4Way16"/>
+    <comp lib="0" loc="(260,200)" name="Splitter">
+      <a name="facing" val="south"/>
+      <a name="fanout" val="3"/>
+      <a name="incoming" val="3"/>
     </comp>
-    <comp lib="0" loc="(240,710)" name="Pin">
+    <comp lib="0" loc="(240,510)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="g16"/>
+      <a name="label" val="c16"/>
+    </comp>
+    <comp lib="0" loc="(290,240)" name="Splitter">
+      <a name="facing" val="north"/>
+      <a name="appear" val="center"/>
+    </comp>
+    <comp loc="(930,560)" name="Mux16"/>
+    <comp lib="0" loc="(240,560)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="d16"/>
     </comp>
     <comp lib="0" loc="(970,560)" name="Pin">
       <a name="facing" val="west"/>
@@ -1352,47 +1360,125 @@
       <a name="label" val="out16"/>
       <a name="labelloc" val="east"/>
     </comp>
-    <comp lib="0" loc="(240,510)" name="Pin">
+    <comp lib="0" loc="(240,610)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="c16"/>
-    </comp>
-    <comp lib="0" loc="(240,460)" name="Pin">
-      <a name="width" val="16"/>
-      <a name="tristate" val="false"/>
-      <a name="label" val="b16"/>
+      <a name="label" val="e16"/>
     </comp>
     <comp lib="0" loc="(240,660)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="f16"/>
     </comp>
-    <comp loc="(570,680)" name="Mux4Way16"/>
-    <comp lib="0" loc="(240,610)" name="Pin">
+    <comp lib="0" loc="(240,710)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="e16"/>
+      <a name="label" val="g16"/>
     </comp>
-    <comp loc="(570,500)" name="Mux4Way16"/>
+    <comp lib="0" loc="(240,460)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b16"/>
+    </comp>
     <comp lib="0" loc="(240,760)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
       <a name="label" val="h16"/>
     </comp>
-    <comp loc="(930,560)" name="Mux16"/>
-    <comp lib="0" loc="(290,240)" name="Splitter">
-      <a name="facing" val="north"/>
-      <a name="appear" val="center"/>
-    </comp>
-    <comp lib="0" loc="(260,200)" name="Splitter">
-      <a name="facing" val="south"/>
-      <a name="fanout" val="3"/>
-      <a name="incoming" val="3"/>
-    </comp>
-    <comp lib="0" loc="(240,560)" name="Pin">
+    <comp lib="0" loc="(240,410)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="d16"/>
+      <a name="label" val="a16"/>
+    </comp>
+    <comp loc="(570,500)" name="Mux4Way16"/>
+  </circuit>
+  <circuit name="DMux4Way">
+    <a name="circuit" val="DMux4Way"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="75" stroke="#000000" stroke-width="2" width="116" x="196" y="105"/>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="219" y="123">sel2</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="211" y="166">in</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="296" y="116">a</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="298" y="133">b</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="296" y="152">c</text>
+      <text font-family="SansSerif" font-size="12" text-anchor="middle" x="298" y="171">d</text>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="248" y="149">DMux4Way</text>
+      <circ-port height="8" pin="510,330" width="8" x="196" y="116"/>
+      <circ-port height="8" pin="500,510" width="8" x="196" y="156"/>
+      <circ-port height="10" pin="1040,400" width="10" x="305" y="105"/>
+      <circ-port height="10" pin="1040,450" width="10" x="305" y="125"/>
+      <circ-port height="10" pin="1040,520" width="10" x="305" y="145"/>
+      <circ-port height="10" pin="1040,570" width="10" x="305" y="165"/>
+      <circ-anchor facing="east" height="6" width="6" x="307" y="147"/>
+    </appear>
+    <wire from="(800,400)" to="(800,540)"/>
+    <wire from="(850,440)" to="(900,440)"/>
+    <wire from="(850,560)" to="(900,560)"/>
+    <wire from="(590,510)" to="(590,520)"/>
+    <wire from="(510,320)" to="(510,330)"/>
+    <wire from="(800,400)" to="(900,400)"/>
+    <wire from="(570,350)" to="(800,350)"/>
+    <wire from="(850,440)" to="(850,470)"/>
+    <wire from="(870,520)" to="(870,540)"/>
+    <wire from="(510,330)" to="(550,330)"/>
+    <wire from="(500,510)" to="(590,510)"/>
+    <wire from="(1020,400)" to="(1040,400)"/>
+    <wire from="(1020,450)" to="(1040,450)"/>
+    <wire from="(1020,570)" to="(1040,570)"/>
+    <wire from="(1020,520)" to="(1040,520)"/>
+    <wire from="(850,520)" to="(850,560)"/>
+    <wire from="(560,470)" to="(590,470)"/>
+    <wire from="(870,520)" to="(900,520)"/>
+    <wire from="(560,350)" to="(560,470)"/>
+    <wire from="(800,540)" to="(870,540)"/>
+    <wire from="(800,350)" to="(800,400)"/>
+    <wire from="(710,470)" to="(850,470)"/>
+    <wire from="(710,520)" to="(850,520)"/>
+    <comp lib="0" loc="(1040,450)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="b"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1040,570)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="d"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp loc="(1020,400)" name="Dmux"/>
+    <comp lib="0" loc="(500,510)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="in"/>
+    </comp>
+    <comp loc="(710,470)" name="Dmux"/>
+    <comp lib="0" loc="(510,330)" name="Pin">
+      <a name="width" val="2"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="sel2"/>
+    </comp>
+    <comp loc="(1020,520)" name="Dmux"/>
+    <comp lib="0" loc="(1040,400)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="a"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(1040,520)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="c"/>
+      <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(550,330)" name="Splitter">
+      <a name="facing" val="south"/>
     </comp>
   </circuit>
 </project>

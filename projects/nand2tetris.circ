@@ -8,6 +8,10 @@
       <a name="fanout" val="16"/>
       <a name="incoming" val="16"/>
     </tool>
+    <tool name="Constant">
+      <a name="width" val="16"/>
+      <a name="value" val="0xffff"/>
+    </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
@@ -1940,7 +1944,7 @@
     <comp lib="0" loc="(140,320)" name="Pin">
       <a name="width" val="16"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="a16"/>
+      <a name="label" val="b16"/>
     </comp>
     <comp lib="0" loc="(140,230)" name="Splitter">
       <a name="fanout" val="16"/>
@@ -1972,5 +1976,38 @@
       <a name="label" val="a16"/>
     </comp>
     <comp loc="(1860,270)" name="FullAdder"/>
+  </circuit>
+  <circuit name="Inc16">
+    <a name="circuit" val="Inc16"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <appear>
+      <rect fill="none" height="57" stroke="#000000" stroke-width="2" width="72" x="49" y="52"/>
+      <text font-family="SansSerif" font-size="14" font-weight="bold" text-anchor="middle" x="83" y="83">Inc16</text>
+      <circ-port height="8" pin="250,250" width="8" x="46" y="76"/>
+      <circ-port height="10" pin="390,270" width="10" x="115" y="75"/>
+      <circ-anchor facing="east" height="6" width="6" x="117" y="77"/>
+    </appear>
+    <wire from="(250,250)" to="(280,250)"/>
+    <wire from="(370,270)" to="(390,270)"/>
+    <wire from="(240,290)" to="(280,290)"/>
+    <comp loc="(370,270)" name="Add16"/>
+    <comp lib="0" loc="(250,250)" name="Pin">
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="in16"/>
+    </comp>
+    <comp lib="0" loc="(240,290)" name="Constant">
+      <a name="width" val="16"/>
+    </comp>
+    <comp lib="0" loc="(390,270)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="width" val="16"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="out16"/>
+      <a name="labelloc" val="east"/>
+    </comp>
   </circuit>
 </project>
